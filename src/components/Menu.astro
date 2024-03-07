@@ -65,7 +65,7 @@ const menuItems = [
       </div>
     </div>
   </div>
-  <nav class="bg-white relative after:contents-[''] after:w-full after:h-4 after:absolute after:left-0 after:bg-[url(/paissas/images/menu-riped.png)] after:bg-center after:bg-cover after:-bottom-3">
+  <nav class=`bg-white relative after:contents-[''] after:w-full after:h-4 after:absolute after:left-0 after:bg-[url(${import.meta.env.BASE_URL}/images/menu-riped.png)] after:bg-center after:bg-cover after:-bottom-3`>
     <div
       class="w-full max-w-7xl mx-auto flex justify-between items-center px-[10%] md:px-10 py-5"
     >
@@ -95,11 +95,11 @@ const menuItems = [
               >
                 <a
                   href={id}
-                  class="is_active text-gray-500 capitalize font-inter text-sm font-medium
+                  class=`text-gray-500 capitalize font-inter text-sm font-medium
             group-hover/menu:text-primary-800 group-hover/menu:drop-shadow group-hover/menu:font-semibold
             group-[.active-menu]/menu:text-primary-800 group-[.active-menu]/menu:drop-shadow group-[.active-menu]/menu:font-semibold
               transition
-              before:contents-[''] before:w-[17px] before:h-2 before:absolute before:-bottom-3 before:left-1/2 before:translate-x-[-50%] before:bg-[url(/paissas/images/menu-arrow.webp)] before:bg-center before:bg-no-repeat before:transition-opacity before:opacity-0 group-[.active-menu]/menu:before:opacity-100 group-hover/menu:before:opacity-100"
+              before:contents-[''] before:w-[17px] before:h-2 before:absolute before:-bottom-3 before:left-1/2 before:translate-x-[-50%] before:bg-[url(${import.meta.env.BASE_URL}/images/menu-arrow.webp)] before:bg-center before:bg-no-repeat before:transition-opacity before:opacity-0 group-[.active-menu]/menu:before:opacity-100 group-hover/menu:before:opacity-100`
                 >
                   {text}
                 </a>
