@@ -81,7 +81,7 @@ const menuItems = [
           />
         </button>
       </div>
-      <ul class="flex justify-center items-center gap-6">
+      <ul class="hidden md:flex justify-center items-center gap-6">
         {
           menuItems.map(({ text, id }) => {
             const isActive = Astro.url.pathname == id ? "active-menu" : "";
