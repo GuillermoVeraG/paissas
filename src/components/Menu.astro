@@ -2,24 +2,41 @@
 import Facebook from "@/components/icons/Facebook.astro";
 import X from "@/components/icons/X.astro";
 import Instagram from "@/components/icons/Instagram.astro";
+import Whatsapp from "@/components/icons/Whatsapp.astro";
+
+import Envelop from "@/components/icons/Envelop.astro";
+import Clock from "@/components/icons/Clock.astro";
+import MenuButton from "@/components/icons/Menu.astro";
+
+const menuItems = [
+  { text: "home", id: `${import.meta.env.BASE_URL}/` },
+  { text: "about", id: `${import.meta.env.BASE_URL}/about` },
+  { text: "services", id: `${import.meta.env.BASE_URL}/services` },
+  { text: "projects", id: `${import.meta.env.BASE_URL}/projects` },
+  { text: "news", id: `${import.meta.env.BASE_URL}/news` },
+];
 ---
 
 <header class="w-full">
-  <div class="bg-tertiary-100 hidden lg:flex justify-between items-center h-8">
-    <div class="max-w-7xl mx-auto">
+  <div class="bg-stone-100 hidden md:flex justify-between items-center h-8">
+    <div
+      class="w-full max-w-7xl mx-auto flex justify-between items-center px-10 text-xs"
+    >
       <div class="flex items-center flex-wrap">
         <div class="flex items-center mr-7 gap-2">
           <a href="#" class=""
             ><Facebook
-              className="size-4 fill-gray-600 hover:fill-secondary-300"
+              className="size-4 fill-gray-600 hover:fill-secondary-300 duration-300 transition-colors"
             /></a
           >
           <a href="#" class=""
-            ><X className="size-4 fill-gray-600 hover:fill-secondary-300" /></a
+            ><X
+              className="size-4 fill-gray-600 hover:fill-secondary-300 duration-300 transition-colors"
+            /></a
           >
           <a href="#" class=""
             ><Instagram
-              className="size-4 fill-gray-600 hover:fill-secondary-300"
+              className="size-4 fill-gray-600 hover:fill-secondary-300 duration-300 transition-colors"
             /></a
           >
         </div>
@@ -27,8 +44,76 @@ import Instagram from "@/components/icons/Instagram.astro";
           Welcome to Agriculture HTML Template
         </p>
       </div>
-      <div class="flex items-center flex-wrap"></div>
+      <div class="flex items-center flex-wrap gap-8">
+        <a
+          href="#"
+          class="flex justify-center items-center gap-2 group/link hover:text-primary-800 duration-300 transition-colors"
+        >
+          <Envelop
+            className="size-4 fill-primary-600 group-hover/link:fill-primary-800"
+          /> needhelp@company.com</a
+        >
+        <a
+          href="#"
+          class="hidden lg:flex justify-center items-center gap-2 group/link hover:text-primary-800 duration-300 transition-colors"
+        >
+          <Clock
+            className="size-4 fill-primary-600 group-hover/link:fill-primary-800"
+          /> Mon - Sat 8:00 - 6:30, Sunday - CLOSED</a
+        >
+      </div>
     </div>
   </div>
-  <nav class=""></nav>
+  <nav class="shadow-[0px_10px_60px_0px_rgba(0, 0, 0, 0.1)]">
+    <div
+      class="w-full max-w-7xl mx-auto flex justify-between items-center px-[10%] md:px-10 py-5"
+    >
+      <div class="flex items-center gap-4">
+        <a href="#" class="">
+          <img
+            src=`${import.meta.env.BASE_URL}/images/paissas_horizontal.webp`
+            class="object-cover w-32 -mt-1"
+          />
+        </a>
+        <button id="menuNavMobileBut" class="md:hidden">
+          <MenuButton
+            className="fill-primary-800 size-4 stroke-2 transition-colors hover:fill-secondary-300 duration-300"
+          />
+        </button>
+      </div>
+      <ul class="flex justify-center items-center gap-6">
+        {
+          menuItems.map(({ text, id }) => {
+            const isActive = Astro.url.pathname == id ? "active-menu" : "";
+
+            return (
+              <li
+                class=`cursor-pointer py-4 relative px-1 w-fit overflow-hidden group/menu ${isActive}
+          before:w-[37%] before:h-[2px] before:bg-secondary-300 before:absolute before:bottom-2 before:z-10 before:transition-opacity before:contents-[''] before:left-0 before:opacity-0 hover:before:opacity-100 [&.active-menu]:before:opacity-100
+          after:w-[37%] after:h-[2px] after:bg-secondary-300 after:absolute after:bottom-2 after:z-10 after:transition-opacity after:contents-[''] after:right-0 after:opacity-0 hover:after:opacity-100 [&.active-menu]:after:opacity-100`
+              >
+                <a
+                  href={id}
+                  class="is_active text-gray-500 capitalize font-inter text-sm font-medium
+            group-hover/menu:text-primary-800 group-hover/menu:drop-shadow group-hover/menu:font-semibold
+            group-[.active-menu]/menu:text-primary-800 group-[.active-menu]/menu:drop-shadow group-[.active-menu]/menu:font-semibold
+              transition
+              before:contents-[''] before:w-[17px] before:h-2 before:absolute before:-bottom-3 before:left-1/2 before:translate-x-[-50%] before:bg-[url(/paissas/images/menu-arrow.webp)] before:bg-center before:bg-no-repeat before:transition-opacity before:opacity-0 group-[.active-menu]/menu:before:opacity-100 group-hover/menu:before:opacity-100"
+                >
+                  {text}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="">
+        <button
+          class="rounded-lg bg-secondary-300 p-2 hover:bg-primary-800 duration-300 transition-colors"
+        >
+          <Whatsapp className="fill-white size-6" />
+        </button>
+      </div>
+    </div>
+  </nav>
 </header>
