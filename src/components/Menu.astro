@@ -7,6 +7,7 @@ import Whatsapp from "@/components/icons/Whatsapp.astro";
 import Envelop from "@/components/icons/Envelop.astro";
 import Clock from "@/components/icons/Clock.astro";
 import MenuButton from "@/components/icons/Menu.astro";
+import CloseButton from "@/components/icons/Close.astro";
 
 const menuItems = [
   { text: "home", id: `${import.meta.env.BASE_URL}/` },
@@ -17,8 +18,8 @@ const menuItems = [
 ];
 ---
 
-<header class="w-full">
-  <div class="bg-stone-100 hidden md:flex justify-between items-center h-8">
+<header class="w-screen">
+  <div class="bg-stone-100 hidden md:flex justify-between items-center h-8 drop-shadow">
     <div
       class="w-full max-w-7xl mx-auto flex justify-between items-center px-10 text-xs"
     >
@@ -64,7 +65,7 @@ const menuItems = [
       </div>
     </div>
   </div>
-  <nav class="shadow-[0px_10px_60px_0px_rgba(0, 0, 0, 0.1)]">
+  <nav class="bg-white relative after:contents-[''] after:w-full after:h-4 after:absolute after:left-0 after:bg-[url(/paissas/images/menu-riped.png)] after:bg-center after:bg-cover after:-bottom-3">
     <div
       class="w-full max-w-7xl mx-auto flex justify-between items-center px-[10%] md:px-10 py-5"
     >
@@ -116,4 +117,54 @@ const menuItems = [
       </div>
     </div>
   </nav>
+  <nav
+    id="menuNavMobile"
+    class="flex flex-col justify-start items-center
+    h-screen w-full z-10 pt-24
+    absolute top-0 left-0
+    bg-primary-800
+    -translate-y-[100vh] duration-700"
+  >
+  <button
+    id="menuNavMobileClose"
+    class="rounded-lg bg-secondary-300 p-2 hover:bg-secondary-400 duration-300 transition-colors"
+  >
+    <CloseButton className="fill-white size-6" />
+  </button>
+    {
+      menuItems.map(({id, text}) => {
+        const isActive = Astro.url.pathname == id ? "active-menu" : "";
+
+        return (
+        <a
+          href={id}
+          class=`${isActive} font-archivo uppercase text-secondary-50 hover:text-secondary-300 [&.active-menu]:text-secondary-300 py-4 text-sm font-light leading-5`
+        >
+          {text}
+        </a>
+      );
+    })
+    }
+  </nav>
 </header>
+<script>
+  var isNavOpen = false;
+  const but = document.querySelector("#menuNavMobileBut");
+  const menu = document.querySelector("#menuNavMobile");
+  const close = document.querySelector("#menuNavMobileClose");
+
+  const menuHideClasses = "-translate-y-[100vh]";
+
+  const handleNav = () => {
+    if (isNavOpen) {
+      menu?.classList.toggle(menuHideClasses);
+      isNavOpen = false;
+    } else {
+      menu?.classList.toggle(menuHideClasses);
+      isNavOpen = true;
+    }
+  };
+
+  but?.addEventListener("click", handleNav);
+  close?.addEventListener("click", handleNav);
+</script>
