@@ -49,8 +49,8 @@ export default {
         },
       },
       backgroundImage: {
-        "menu-arrow": "url('paissas/images/menu-arrow.webp')",
-        "menu-riped": "url('paissas/images/menu-riped.png')",
+        "menu-arrow": `url('/paissas/images/menu-arrow.webp')`,
+        "menu-riped": "url('/paissas/images/menu-riped.png')",
       },
     },
   },
