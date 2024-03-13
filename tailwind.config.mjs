@@ -48,6 +48,10 @@ export default {
           950: "#232a09",
         },
       },
+      backgroundImage: {
+        "menu-arrow": "url('paissas/images/menu-arrow.webp')",
+        "menu-riped": "url('paissas/images/menu-riped.png')",
+      },
     },
   },
   plugins: [],
