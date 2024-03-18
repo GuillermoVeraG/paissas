@@ -1,0 +1,61 @@
+---
+import ArrowsBut from "@/components/icons/ArrowsHeader.astro";
+---
+
+<section class="w-full overflow-hidden relative">
+  <div class="w-full h-full mx-auto flex justify-center items-center">
+    <div class="flex w-full h-full">
+      <div class="w-full h-full relative">
+        <div
+          class=`absolute inset-0 bg-no-repeat bg-cover bg-center bg-hero-slider-1 -z-10`
+        >
+        </div>
+
+        <div class="w-full h-full max-w-7xl px-4 py-40">
+          <div class="flex items-start justify-start">
+            <div class="max-w-[58%]">
+              <span
+                class="uppercase mb-8 font-bold text-xs lg:text-sm tracking-[0.2rem] text-secondary-50"
+                >Welcome to Agriculture Farm</span
+              >
+              <h2
+                class="font-handlee text-white m-0 mt-4 leading-tight text-5xl"
+              >
+                <span
+                  class="relative before:absolute before:-top-3 before:-right-10 before:size-14 before:bg-no-repeat before:bg-hero-shape before:bg-cover"
+                >
+                  Agriculture
+                </span>
+                <br />
+                & Eco Farming
+              </h2>
+              <p class="text-secondary-50 mb-10 mt-6 font-medium text-sm">
+                There are many of passages of lorem Ipsum, but the majori have
+              </p>
+              <a
+                href="#"
+                class="inline-block bg-secondary-300 text-secondary-50 hover:bg-secondary-50 hover:text-secondary-300 transition-colors duration-300 px-10 py-6 rounded-lg font-semibold"
+                >Discover More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-end gap-y-3 px-4 w-full max-w-7xl"
+    >
+      <div
+        class="size-16 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
+      >
+        <ArrowsBut className="size-6 fill-secondary-50" />
+      </div>
+      <div
+        class="size-16 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
+      >
+        <ArrowsBut className="size-6 fill-secondary-50 rotate-180" />
+      </div>
+    </div>
+  </div>
+</section>
