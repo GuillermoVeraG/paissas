@@ -1,66 +1,137 @@
 ---
 import ArrowsBut from "@/components/icons/ArrowsHeader.astro";
+
+const HERO = [
+  {
+    bg: "bg-hero-slider-1",
+    title1: "Agriculture",
+    title2: "& Eco Farming",
+    subtitle: "Welcome to Agriculture Farm",
+    desc: "There are many of passages of lorem Ipsum, but the majori have suffered alteration in some form.",
+    but: 'Discover more',
+  },
+  {
+    bg: "bg-hero-slider-2",
+    title1: "Agriculture",
+    title2: "& Eco Farming",
+    subtitle: "Welcome to Agriculture Farm",
+    desc: "There are many of passages of lorem Ipsum, but the majori have suffered alteration in some form.",
+    but: 'Discover more',
+  },
+];
 ---
 
 <section class="w-full overflow-hidden relative">
   <div class="w-full h-full mx-auto flex justify-center items-center">
-    <div class="flex w-full h-full">
-      <div class="w-full h-full relative">
-        <div
-          class=`absolute inset-0 bg-no-repeat bg-cover bg-center bg-hero-slider-1 -z-10`
-        >
-        </div>
+    <div id="slideContainer" class="flex w-full h-full" data-slider="0">
+      {
+        HERO.map(({bg, title1, title2, subtitle, desc, but}) => (
+        <div class="w-screen h-full relative flex-shrink-0 transition-transform duration-700 ease-in-out">
+          <div
+            class=`absolute inset-0 bg-no-repeat bg-cover bg-center ${bg} -z-10`
+          >
+          </div>
 
-        <div
-          class="w-full h-full max-w-7xl sm:max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 xl:px-10 py-40 md:py-32"
-        >
-          <div class="flex items-start justify-start">
-            <div class="w-full md:max-w-[58%]">
-              <span
-                class="uppercase mb-8 font-bold text-sm sm:text-base tracking-[0.2rem] text-secondary-50"
-                >Welcome to Agriculture Farm</span
-              >
-              <h2
-                class="font-handlee text-white m-0 mt-4 md:mt-8 leading-tight text-6xl md:text-7xl font-bold"
-              >
+          <div
+            class="w-screen h-full max-w-7xl sm:max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 xl:px-10 py-40 md:py-32"
+          >
+            <div class="flex items-start justify-start">
+              <div class="w-full md:max-w-[58%]">
                 <span
-                  class="relative before:absolute before:-top-2 sm:before:-top-3 before:-right-10 sm:before:-right-14 before:size-14 sm:before:size-20 before:bg-no-repeat before:bg-hero-shape before:bg-cover"
+                  class="uppercase mb-8 font-bold text-sm sm:text-base tracking-[0.2rem] text-secondary-50"
+                  >{subtitle}</span
                 >
-                  Agriculture
-                </span>
-                <br />
-                & Eco Farming
-              </h2>
-              <p
-                class="text-secondary-50 mb-10 mt-6 font-medium text-sm sm:text-base text-pretty w-10/12 md:w-full"
-              >
-                There are many of passages of lorem Ipsum, but the majori have
-                suffered alteration in some form.
-              </p>
-              <a
-                href="#"
-                class="inline-block bg-secondary-300 text-secondary-50 hover:bg-secondary-50 hover:text-secondary-300 transition-colors duration-300 px-10 py-6 rounded-lg font-semibold"
-                >Discover More</a
-              >
+                <h2
+                  class="font-handlee text-white m-0 mt-4 md:mt-8 leading-tight text-6xl md:text-7xl font-bold"
+                >
+                  <span
+                    class="relative before:absolute before:-top-2 sm:before:-top-3 before:-right-10 sm:before:-right-14 before:size-14 sm:before:size-20 before:bg-no-repeat before:bg-hero-shape before:bg-cover"
+                  >
+                    {title1}
+                  </span>
+                  <br />
+                  {title2}
+                </h2>
+                <p
+                  class="text-secondary-50 mb-10 mt-6 font-medium text-sm sm:text-base text-pretty w-10/12 md:w-full"
+                >
+                  {desc}
+                </p>
+                <a
+                  href="#"
+                  class="inline-block bg-secondary-300 text-secondary-50 hover:bg-secondary-50 hover:text-secondary-300 transition-colors duration-300 px-10 py-6 rounded-lg font-semibold"
+                  >{but}</a
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        ))
+      }
+      
+      
     </div>
 
     <div
       class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-end gap-y-3 px-4 w-full max-w-7xl"
     >
-      <div
+      <button
+        id="butHeroLeft"
         class="size-12 md:size-14 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
       >
         <ArrowsBut className="size-5 md:size-6 fill-secondary-50" />
-      </div>
-      <div
+      </button>
+      <button
+        id="butHeroRight"
         class="size-12 md:size-14 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
       >
         <ArrowsBut className="size-5  md:size-6 fill-secondary-50 rotate-180" />
-      </div>
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+  const butHeroLeft = document.getElementById("butHeroLeft");
+  const butHeroRight = document.getElementById("butHeroRight");
+
+  const slideContainer = document.getElementById("slideContainer");
+  const slideContainerChilds = slideContainer?.children || [];
+
+  butHeroLeft?.addEventListener("click", () => {
+    let actualSlider = parseInt(slideContainer?.dataset.slider || "0");
+    actualSlider--;
+
+    if (actualSlider < 0) {
+      actualSlider = slideContainerChilds.length - 1;
+    }
+
+    setSliderActual(actualSlider);
+  });
+
+  butHeroRight?.addEventListener("click", () => {
+    let actualSlider = parseInt(slideContainer?.dataset.slider || "0");
+    actualSlider++;
+
+    if (actualSlider >= slideContainerChilds.length) {
+      actualSlider = 0;
+    }
+
+    setSliderActual(actualSlider);
+  });
+
+  function setSliderActual(actualSlider: number) {
+    const widthSlider = slideContainer?.clientWidth || 1;
+
+    if (slideContainer != null) {
+      slideContainer.dataset.slider = actualSlider.toString();
+    }
+
+    const offset = actualSlider * widthSlider * -1;
+
+    for (const slideItem of slideContainerChilds) {
+      const item = slideItem as HTMLElement;
+      item.style.transform = `translateX(${offset}px)`;
+    }
+  }
+</script>
