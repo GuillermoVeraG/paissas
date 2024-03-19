@@ -11,26 +11,31 @@ import ArrowsBut from "@/components/icons/ArrowsHeader.astro";
         >
         </div>
 
-        <div class="w-full h-full max-w-7xl mx-auto px-4 py-40">
+        <div
+          class="w-full h-full max-w-7xl sm:max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl mx-auto px-4 xl:px-10 py-40 md:py-32"
+        >
           <div class="flex items-start justify-start">
-            <div class="max-w-[58%]">
+            <div class="w-full md:max-w-[58%]">
               <span
-                class="uppercase mb-8 font-bold text-xs lg:text-sm tracking-[0.2rem] text-secondary-50"
+                class="uppercase mb-8 font-bold text-sm sm:text-base tracking-[0.2rem] text-secondary-50"
                 >Welcome to Agriculture Farm</span
               >
               <h2
-                class="font-handlee text-white m-0 mt-4 leading-tight text-5xl"
+                class="font-handlee text-white m-0 mt-4 md:mt-8 leading-tight text-6xl md:text-7xl font-bold"
               >
                 <span
-                  class="relative before:absolute before:-top-3 before:-right-10 before:size-14 before:bg-no-repeat before:bg-hero-shape before:bg-cover"
+                  class="relative before:absolute before:-top-2 sm:before:-top-3 before:-right-10 sm:before:-right-14 before:size-14 sm:before:size-20 before:bg-no-repeat before:bg-hero-shape before:bg-cover"
                 >
                   Agriculture
                 </span>
                 <br />
                 & Eco Farming
               </h2>
-              <p class="text-secondary-50 mb-10 mt-6 font-medium text-sm">
+              <p
+                class="text-secondary-50 mb-10 mt-6 font-medium text-sm sm:text-base text-pretty w-10/12 md:w-full"
+              >
                 There are many of passages of lorem Ipsum, but the majori have
+                suffered alteration in some form.
               </p>
               <a
                 href="#"
@@ -47,14 +52,14 @@ import ArrowsBut from "@/components/icons/ArrowsHeader.astro";
       class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-end gap-y-3 px-4 w-full max-w-7xl"
     >
       <div
-        class="size-16 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
+        class="size-12 md:size-14 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
       >
-        <ArrowsBut className="size-6 fill-secondary-50" />
+        <ArrowsBut className="size-5 md:size-6 fill-secondary-50" />
       </div>
       <div
-        class="size-16 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
+        class="size-12 md:size-14 flex items-center justify-center border-2 border-secondary-50 rounded-full opacity-30 m-0 transition-opacity duration-500 hover:opacity-100 hover:cursor-pointer"
       >
-        <ArrowsBut className="size-6 fill-secondary-50 rotate-180" />
+        <ArrowsBut className="size-5  md:size-6 fill-secondary-50 rotate-180" />
       </div>
     </div>
   </div>
