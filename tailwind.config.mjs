@@ -50,10 +50,13 @@ export default {
       },
       backgroundImage: {
         "menu-arrow": `url('/paissas/images/menu-arrow.webp')`,
-        "menu-riped": "url('/paissas/images/menu-riped.png')",
+
         "hero-slider-1": "url('/paissas/images/hero-slider-1-1.webp')",
         "hero-slider-2": "url('/paissas/images/hero-slider-1-2.webp')",
         "hero-shape": "url('/paissas/images/hero-shape.png')",
+
+        "ripped-menu": "url('/paissas/images/ripped/white.png')",
+        "ripped-skill": "url('/paissas/images/ripped/yellow.png')",
       },
     },
   },

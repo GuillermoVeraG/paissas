@@ -28,8 +28,43 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-inter bg-black">
+  <body class="font-inter bg-white overflow-x-hidden">
     <Menu />
     <slot />
   </body>
 </html>
+
+{
+  /* <style is:global>
+.dark #header-nav {
+    animation: blurdark linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    z-index: 30;
+  }
+
+  @keyframes blurdark {
+    to {
+      background: rgba(29, 32, 37, 0.3);
+      filter: drop-shadow(2px 4px 6px rgb(0 0 0 / 0.3));
+      position: fixed;
+    }
+  }
+
+  #header-nav {
+    animation: blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    z-index: 30;
+  }
+
+  @keyframes blur {
+    to {
+      background: "#fff";
+      filter: drop-shadow(2px 4px 6px rgb(0 0 0 / 0.3));
+      position: fixed;
+    }
+  }
+</style>
+*/
+}

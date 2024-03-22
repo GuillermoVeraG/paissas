@@ -1,11 +1,156 @@
 ---
 import Title from "@/components/Title.astro";
+
+import Arrow from "@/components/icons/ArrowsHeader.astro";
+
+const PROJECTS = [
+  {
+    id: 3,
+    src: `${import.meta.env.BASE_URL}/images/project-2-3.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 4,
+    src: `${import.meta.env.BASE_URL}/images/project-2-4.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 1,
+    src: `${import.meta.env.BASE_URL}/images/project-2-1.webp`,
+    name: "harvest innovation",
+  },
+
+  {
+    id: 2,
+    src: `${import.meta.env.BASE_URL}/images/project-2-2.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 3,
+    src: `${import.meta.env.BASE_URL}/images/project-2-3.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 4,
+    src: `${import.meta.env.BASE_URL}/images/project-2-4.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 2,
+    src: `${import.meta.env.BASE_URL}/images/project-2-2.webp`,
+    name: "harvest innovation",
+  },
+  {
+    id: 1,
+    src: `${import.meta.env.BASE_URL}/images/project-2-1.webp`,
+    name: "harvest innovation",
+  },
+];
 ---
 
-<section class="w-full bg-tertiary-50">
+<section class="w-full bg-tertiary-50 py-20">
   <div
-    class="w-full max-w-7xl mx-auto flex justify-center items-center px-[10%] md:px-10 py-5"
+    class="w-full max-w-[540px] md:max-w-[960px] lg:max-w-[1200px] mx-auto flex flex-col justify-center items-center px-4 py-5"
   >
     <Title title="closed projects" subtitle="latest projects list" />
+
+    <div
+      class="swiper w-full mx-auto list-none flex justify-center items-center my-8 relative"
+    >
+      <div class="swiper-wrapper w-full h-full flex box-content">
+        {
+          PROJECTS.map(({ id, src, name }) => (
+            <div class="swiper-slide flex-shrink-0 w-full flex items-center justify-center bg-white text-center text-2xl text-black group/project">
+              <div class="overflow-hidden rounded-md mb-7 relative">
+                <img src={src} alt={name} class="w-full h-full object-cover" />
+                <div class="absolute top-0 right-0 left-0 bottom-0 lg:top-auto lg:bottom-6 lg:left-8 lg:right-auto lg:w-96 lg:flex lg:flex-row lg:items-center lg:justify-between bg-secondary-300 flex flex-col justify-end p-8 lg:px-10 lg:py-11 lg:rounded-md opacity-0 translate-y-[105%] transition duration-300 ease-linear group-hover/project:translate-y-0 group-hover/project:opacity-100">
+                  <h3 class="text-secondary-50 text-xl lg:text-4xl font-bold m-0 capitalize lg:max-w-40 text-left">
+                    {name}
+                  </h3>
+                  <a
+                    href="#"
+                    class="absolute lg:relative top-8 lg:top-auto right-8 lg:right-auto size-10 lg:size-16 border-secondary-50 border-2 rounded-full flex items-center justify-center hover:bg-secondary-50 group/link"
+                  >
+                    <Arrow className="size-4 lg:size-6 fill-secondary-50 rotate-180 group-hover/link:fill-primary-800" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div
+        class="swiper-pagination w-full my-8 relative bottom-auto left-auto flex justify-center items-center"
+      >
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+  import Swiper from "swiper";
+  import { Pagination } from "swiper/modules";
+
+  import "swiper/css";
+  import "swiper/css/pagination";
+
+  var swiper = new Swiper(".swiper", {
+    modules: [Pagination],
+
+    loop: true,
+    loopAdditionalSlides: 4,
+
+    slidesPerView: 1,
+    spaceBetween: 0,
+    slidesPerGroup: 1,
+
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+
+    breakpoints: {
+      "0": {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+      },
+      "640": {
+        spaceBetween: 30,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      "992": {
+        spaceBetween: 30,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+    },
+  });
+  swiper.slideNext();
+</script>
+
+<style is:global>
+  @media (min-width: 1200px) {
+    .swiper {
+      overflow: visible !important;
+    }
+  }
+  .swiper-pagination {
+    margin-top: 10px !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+  }
+  .swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+    opacity: 0.3 !important;
+    background-color: rgb(34 82 40) !important;
+  }
+  .swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background-color: rgb(34 82 40) !important;
+  }
+</style>
