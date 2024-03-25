@@ -50,6 +50,7 @@ export default {
       },
       backgroundImage: {
         "menu-arrow": `url('/paissas/images/menu-arrow.webp')`,
+        "about-circle": `url('/paissas/images/about-circle.png')`,
 
         "hero-slider-1": "url('/paissas/images/hero-slider-1-1.webp')",
         "hero-slider-2": "url('/paissas/images/hero-slider-1-2.webp')",
