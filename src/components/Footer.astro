@@ -1,0 +1,158 @@
+---
+import Facebook from "@/components/icons/Facebook.astro";
+import X from "@/components/icons/X.astro";
+import Instagram from "@/components/icons/Instagram.astro";
+
+import Whatsapp from "@/components/icons/Whatsapp.astro";
+import Envelop from "@/components/icons/Envelop.astro";
+import Map from "@/components/icons/Map.astro";
+
+import ArrowsBut from "@/components/icons/ArrowsHeader.astro";
+---
+
+<footer class="w-full">
+  <div
+    class="pt-24 pb-20 mt-4 bg-[#255946] relative
+  before:content-[''] before:w-full before:h-4 before:absolute before:-top-4 before:left-0 before:z-10 before:bg-ripped-footer-2"
+  >
+    <img
+      src={`${import.meta.env.BASE_URL}/images/footer-bg.png`}
+      alt=""
+      class="hidden sm:block absolute -bottom-11 -right-4 pointer-events-none"
+    />
+
+    <div
+      class="w-full max-w-7xl mx-auto px-10
+      flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-8 md:gap-4"
+    >
+      <div
+        class="flex flex-col justify-center items-start gap-4 max-w-96 md:max-w-64"
+      >
+        <a href="" class="w-full flex justify-center items-center">
+          <img
+            src={`${import.meta.env.BASE_URL}/images/paissas_white_vertical.webp`}
+            alt=""
+            class="h-28"
+          />
+        </a>
+        <p class="text-secondary-50/60 text-sm font-medium text-pretty">
+          There are many variations of passages of lorem ipsum available, but
+          the majority suffered.
+        </p>
+        <form
+          action="#"
+          class="w-full bg-white rounded-md h-12 relative mt-4 mb-5 flex justify-between items-center px-4"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            class="border-none outline-none text-sm text-primary-800 pl-3"
+          />
+          <button
+            type="submit"
+            class="absolute top-1/2 right-4 -translate-y-1/2"
+          >
+            <ArrowsBut
+              className="size-4 fill-primary-800 hover:fill-secondary-300 rotate-180"
+            />
+          </button>
+        </form>
+        <div class="flex justify-center items-center gap-4">
+          <Facebook
+            className="size-5 fill-secondary-50 hover:fill-secondary-300 cursor-pointer"
+          />
+          <X
+            className="size-5 fill-secondary-50 hover:fill-secondary-300 cursor-pointer"
+          />
+          <Instagram
+            className="size-5 fill-secondary-50 hover:fill-secondary-300 cursor-pointer"
+          />
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col max-w-96 md:max-w-full md:flex-row justify-center md:justify-end items-center gap-8"
+      >
+        <div class="w-full md:w-60">
+          <h3 class="mb-6 text-lg font-bold text-secondary-50">News</h3>
+          <ul class="-mt-3 flex flex-col justify-center items-start gap-6">
+            <li class="min-h-14 flex items-strat gap-4">
+              <img
+                src={`${import.meta.env.BASE_URL}/images/footer-post-1.webp`}
+                alt=""
+                class="w-32 h-full object-cover shadow-md"
+              />
+              <div class="flex flex-col justify-center items-start gap-2">
+                <span class="text-secondary-300 text-sm font-semibold"
+                  >Nov 16, 2020</span
+                >
+                <h4 class="text-base text-secondary-50 font-medium">
+                  <a href="#">How to grow vagetables in the forms</a>
+                </h4>
+              </div>
+            </li>
+            <li class="min-h-14 flex items-start gap-4">
+              <img
+                src={`${import.meta.env.BASE_URL}/images/footer-post-2.webp`}
+                alt=""
+                class="w-32 object-cover shadow-md"
+              />
+              <div class="flex flex-col justify-center items-start gap-2">
+                <span class="text-secondary-300 text-sm font-semibold"
+                  >Nov 16, 2020</span
+                >
+                <h4 class="text-base text-secondary-50 font-medium">
+                  <a href="#">How to grow vagetables in the forms</a>
+                </h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full md:w-60">
+          <h3 class="mb-6 text-lg font-bold text-secondary-50">Contact</h3>
+          <ul class="-mt-3">
+            <li class="min-h-14 flex items-center gap-4">
+              <Whatsapp className="size-5 fill-secondary-300" />
+              <span class="text-secondary-50">300 542 2899</span>
+            </li>
+            <li class="min-h-14 flex items-center gap-4">
+              <Envelop className="size-5 fill-secondary-300" />
+              <span class="text-secondary-50">needhelp@company.com</span>
+            </li>
+            <li class="min-h-14 flex items-center gap-4">
+              <Map className="size-7 fill-secondary-300" />
+              <span class="text-secondary-50"
+                >80 broklyn golden street line New York, USA</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="bg-[#1F4E3D] relative w-full py-10
+    before:contents-[''] before:w-full before:h-4 before:absolute before:-top-4 before:left-0 before:z-10 before:bg-ripped-footer"
+  >
+    <div
+      class="w-full max-w-7xl mx-auto px-10 flex flex-col lg:flex-row justify-center lg:justify-between items-center gap-5 text-secondary-50/60 text-sm font-medium"
+    >
+      <p>© Copyright 2020 by Pais.sas</p>
+      <div class="">
+        <a
+          href=""
+          class="after:content-['/'] after:mx-1 hover:text-secondary-50"
+          >Terms & Conditions</a
+        >
+        <a
+          href=""
+          class="after:content-['/'] after:mx-1 hover:text-secondary-50"
+          >Privacy Policy</a
+        >
+        <a href="" class="hover:text-secondary-50">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>

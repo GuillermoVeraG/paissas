@@ -58,6 +58,8 @@ export default {
 
         "ripped-menu": "url('/paissas/images/ripped/white.png')",
         "ripped-skill": "url('/paissas/images/ripped/yellow.png')",
+        "ripped-footer": "url('/paissas/images/ripped/base.png')",
+        "ripped-footer-2": "url('/paissas/images/ripped/base-2.png')",
       },
     },
   },
