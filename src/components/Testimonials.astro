@@ -1,0 +1,142 @@
+---
+import Star from "@/components/icons/Star.astro";
+
+const TESTIMONIALS = [
+  {
+    id: 0,
+    stars: 5,
+    desc: "This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch. Duis aute lorem ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.",
+    name: "caleb hoffman",
+    type: "customer",
+    img: `${import.meta.env.BASE_URL}/images/testimonials-1-1.webp`,
+  },
+  {
+    id: 1,
+    stars: 4,
+    desc: "This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch. Duis aute lorem ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.",
+    name: "jessica brown",
+    type: "customer",
+    img: `${import.meta.env.BASE_URL}/images/testimonials-1-2.webp`,
+  },
+  {
+    id: 2,
+    stars: 3,
+    desc: "This is due to their excellent service, competitive pricing and customer support. It’s throughly refresing to get such a personal touch. Duis aute lorem ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.",
+    name: "bradley kim",
+    type: "customer",
+    img: `${import.meta.env.BASE_URL}/images/testimonials-1-3.webp`,
+  },
+];
+---
+
+<section
+  id="fullWidthSection"
+  class="w-full pt-20 pb-24 bg-[#1F4E3D] relative before:contents-[''] before:w-full before:h-4 before:absolute before:rotate-180 before:-top-4 before:left-0 before:bg-ripped-testimonials"
+>
+  <img
+    src={`${import.meta.env.BASE_URL}/images/testimonials-bg.png`}
+    alt=""
+    class="w-full h-full absolute left-1/2 -translate-x-1/2 -bottom-28 opacity-5 object-cover z-10"
+  />
+
+  <div
+    class="w-full mx-auto flex justify-center items-center py-5 relative z-20"
+  >
+    <h2
+      class="absolute -top-4 left-1/2 lg:top-1/2 lg:-left-10 -translate-x-1/2 lg:translate-x-0 lg:-translate-y-1/2 lg:-rotate-90 lg:mb-0 text-secondary-50 tracking-[0.2rem] lg:text-secondary-300 uppercase text-center text-lg font-bold"
+    >
+      testimonials
+    </h2>
+
+    <div id="slideContainerTestimonials" class="flex w-screen h-full mt-8" data-slider="0">
+    {
+      TESTIMONIALS.map(({ id, stars, desc, name, type, img }) => {
+        const star1 = stars > 0 ? "active-star" : "",
+          star2 = stars > 1 ? "active-star" : "",
+          star3 = stars > 2 ? "active-star" : "",
+          star4 = stars > 3 ? "active-star" : "",
+          star5 = stars > 4 ? "active-star" : "";
+
+        const img1 = id == 1 ? "active-testimonials" : "",
+            img2 = id == 2 ? "active-testimonials" : "",
+            img3 = id == 3 ? "active-testimonials" : "";
+
+        return (<div class="w-full h-full relative flex flex-col justify-center items-center flex-shrink-0 gap-10 transition-transform duration-700 ease-in-out px-4">
+          <div class="w-full flex justify-center items-center gap-2">
+            <Star className=`${star1} size-5 lg:size-6 fill-gray-900/50 [&.active-star]:fill-secondary-300` />
+            <Star className=`${star2} size-5 lg:size-6 fill-gray-900/50 [&.active-star]:fill-secondary-300` />
+            <Star className=`${star3} size-5 lg:size-6 fill-gray-900/50 [&.active-star]:fill-secondary-300` />
+            <Star className=`${star4} size-5 lg:size-6 fill-gray-900/50 [&.active-star]:fill-secondary-300` />
+            <Star className=`${star5} size-5 lg:size-6 fill-gray-900/50 [&.active-star]:fill-secondary-300` />
+          </div>
+          <p class="w-full max-w-7xl sm:max-w-lg md:max-w-3xl  mx-auto text-center text-lg lg:text-2xl leading-10 lg:leading-[50px] text-secondary-50">
+            {desc}
+          </p>
+          <div class="w-full max-w-xs mx-auto relative overflow-hidden list-none p-0 z-10 flex justify-center items-center gap-4">
+            {
+                TESTIMONIALS.map((per) => {
+                    const active = id == per.id ? "active-testimonials" : "";
+
+                    return (
+                    <button id={per.id.toString()} class="persons-button">
+                        <img
+                            src={per.img}
+                            alt=""
+                            class=`${active} rounded-full cursor-pointer border-4 border-white [&.active-testimonials]:border-primary-600`
+                        />
+                    </button>)
+                })
+            }
+            
+          </div>
+
+          <div class="flex flex-col justify-center items-center">
+            <h4 class="text-secondary-50 font-bold text-lg lg:text-2xl capitalize">
+              {name}
+            </h4>
+            <div class="text-secondary-50/50 font-semibold text-sm tracking-[0.2rem] uppercase lg:mt-2">
+              {type}
+            </div>
+          </div>
+        </div>)
+      })
+    }
+    </div>
+  </div>
+</section>
+
+<script>
+    const buts = document.querySelectorAll('button[class=persons-button]');
+  
+    const slideContainer = document.getElementById("slideContainerTestimonials");
+    const sectionContainer = document.getElementById("fullWidthSection");
+    
+    const slideContainerChilds = slideContainer?.children || [];
+  
+    buts.forEach(btn => {
+        btn?.addEventListener("click", () => {
+            console.log(btn.id);
+            setSliderActual(parseInt(btn.id));
+        });
+    })
+  
+    function setSliderActual(actualSlider: number) {
+      const widthSlider = sectionContainer?.clientWidth || 1;
+  
+      if (slideContainer != null) {
+        slideContainer.dataset.slider = actualSlider.toString();
+      }
+  
+      let offset = actualSlider * widthSlider * -1;
+  
+      for (const slideItem of slideContainerChilds) {
+        const item = slideItem as HTMLElement;
+        item.style.transform = `translateX(${offset}px)`;
+      }
+    }
+
+    window.addEventListener("resize", function () {
+        let actualSlider = parseInt(slideContainer?.dataset.slider || "0");
+        setSliderActual(actualSlider);
+    });
+  </script>

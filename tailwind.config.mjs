@@ -60,6 +60,7 @@ export default {
         "ripped-skill": "url('/paissas/images/ripped/yellow.png')",
         "ripped-footer": "url('/paissas/images/ripped/base.png')",
         "ripped-footer-2": "url('/paissas/images/ripped/base-2.png')",
+        "ripped-testimonials": "url('/paissas/images/ripped/testimonials.png')",
       },
     },
   },
