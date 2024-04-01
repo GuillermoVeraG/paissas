@@ -1,0 +1,39 @@
+---
+const { title, menu, img } = Astro.props;
+---
+
+<section
+  class="relative bg-primary-500
+after:content-[''] after:w-full after:h-4 after:-bottom-px after:left-0 after:z-10 after:bg-ripped-menu after:bg-center"
+>
+  <img
+    src={img}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-left z-10"
+  />
+
+  <div
+    class="relative w-full max-w-lg md:max-w-3xl lg:max-w-7xl h-full mx-auto flex flex-col justify-center items-center px-3 py-40 text-center z-20"
+  >
+    <ul class="flex justify-center items-center gap-3 m-0 list-none">
+      <li
+        class="font-bold uppercase text-sm text-secondary-50 flex items-center tracking-widest"
+      >
+        <a href=`${import.meta.env.BASE_URL}/` class="opacity-70">home</a>
+      </li>
+      <li
+        class="font-bold uppercase text-sm text-secondary-50 flex items-center tracking-widest"
+      >
+        /
+      </li>
+      <li
+        class="font-bold uppercase text-sm text-secondary-50 flex items-center tracking-widest"
+      >
+        {menu}
+      </li>
+    </ul>
+    <h2 class="font-handlee text-secondary-50 font-bold mt-7 text-7xl m-0">
+      {title}
+    </h2>
+  </div>
+</section>
